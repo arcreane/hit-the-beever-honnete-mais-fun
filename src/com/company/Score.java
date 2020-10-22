@@ -1,9 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
 import java.util.Arrays;
+
 
 public class Score {
 
@@ -19,10 +17,9 @@ public class Score {
                 {"Name4", "Points4"},
                 {"Name5", "Points5"},
         };
-
         // Print the informations in the array
-        for (String[] tab: ranking) {
-            for (String x: tab) {
+        for (String[] tab : ranking) {
+            for (String x : tab) {
 
                 System.out.print(x + " ");
             }
