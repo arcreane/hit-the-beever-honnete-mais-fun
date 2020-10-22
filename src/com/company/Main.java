@@ -2,21 +2,22 @@ package com.company;
 
 import java.util.Scanner;
 
-import static com.company.Menu.menu;
-
 public class Main {
+
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         int userChoiceMenu;
-        userChoiceMenu = menu();
+        userChoiceMenu = Menu.menu();
 
-       WhackAMole ourWhackAMole;
-       ourWhackAMole = new WhackAMole(10,10);
+        Grid.position = Grid.initialisationOfTheGrid();
+        Grid.displayGrid(Grid.position);
 
-       System.out.println(ourWhackAMole.printGrid());
+
+        System.out.println(Grid.position);
 
 
     }
+
 }
