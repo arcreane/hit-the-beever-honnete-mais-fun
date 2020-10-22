@@ -12,8 +12,8 @@ public class Main {
         int userChoiceMenu;
         userChoiceMenu = menu();
 
-       WhackAMole ourWhackAMole;
-       ourWhackAMole = new WhackAMole(10,10);
+       //WhackAMole ourWhackAMole;
+       //ourWhackAMole = new WhackAMole(10,10);
 
        System.out.println(ourWhackAMole.printGrid());
 
