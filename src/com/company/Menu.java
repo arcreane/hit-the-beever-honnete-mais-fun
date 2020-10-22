@@ -14,7 +14,5 @@ public class Menu {
         System.out.println("2 - View HighScore");
         System.out.println("3 - Quit");
 
-        selection = input.nextInt();
-        return selection;
     }
 }

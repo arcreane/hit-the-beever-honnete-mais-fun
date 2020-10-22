@@ -24,7 +24,11 @@ public class WhackAMole {
 
         }
 
-        boolean place(int x, int y) {
+    public WhackAMole() {
+
+    }
+
+    boolean place(int x, int y) {
             if(moleGrid[x][y] == '*')
             {
                 moleGrid[x][y] = 'M';

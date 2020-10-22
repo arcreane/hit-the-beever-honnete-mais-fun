@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.Arrays;
-
+import java.util.Scanner;
 
 public class Score {
 
@@ -11,6 +11,7 @@ public class Score {
         // Creation of an array
 
         String[][] ranking = {
+
                 {"Name1", "Points1"},
                 {"Name2", "Points2"},
                 {"Name3", "Points3"},
@@ -24,6 +25,7 @@ public class Score {
                 System.out.print(x + " ");
             }
             System.out.println(" ");
+
         }
 
     }

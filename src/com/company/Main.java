@@ -9,8 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-
         Scanner input = new Scanner(System.in);
 
         int userChoiceMenu;
@@ -20,8 +18,6 @@ public class Main {
        ourWhackAMole = new WhackAMole(10,10);
 
        System.out.println(ourWhackAMole.printGrid());
-
-        if Score.score();
 
     }
 }
