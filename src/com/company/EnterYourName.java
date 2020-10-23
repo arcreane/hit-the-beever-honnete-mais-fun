@@ -7,9 +7,7 @@ public class EnterYourName {
     public static void enteryourname(){
         Scanner scannername = new Scanner (System.in);
         System.out.println("Add player's name :");
-        scannername.nextLine();
-
-
+        String yourname = scannername.nextLine();
 
     }
 

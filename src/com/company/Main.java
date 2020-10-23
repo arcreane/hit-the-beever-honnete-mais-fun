@@ -1,9 +1,11 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static com.company.Menu.menu;
+
 
 public class Main {
 
@@ -14,10 +16,12 @@ public class Main {
         int userChoiceMenu;
         userChoiceMenu = menu();
 
-       WhackAMole ourWhackAMole;
-       ourWhackAMole = new WhackAMole(10,10);
+        WhackAMole ourWhackAMole;
+        ourWhackAMole = new WhackAMole(10, 10);
 
-       System.out.println(ourWhackAMole.printGrid());
+        System.out.println(ourWhackAMole.printGrid());
+
+
 
     }
 }

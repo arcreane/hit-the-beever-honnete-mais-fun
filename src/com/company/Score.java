@@ -1,32 +1,27 @@
 package com.company;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-public class Score {
+class Score {
+    int points;
+    String name;
 
-    public static void score() {
 
+    public Score(int points, String name) {
+        this.points = points;
+        this.name = name;
+    }
 
-        // Creation of an array
+    public String toString() {
+        return this.points + " " + this.name;
+    }
+}
 
-        String[][] ranking = {
+class SortByDecreasingOrder implements Comparator<Score> {
 
-                {"Name1", "Points1"},
-                {"Name2", "Points2"},
-                {"Name3", "Points3"},
-                {"Name4", "Points4"},
-                {"Name5", "Points5"},
-        };
-        // Print the informations in the array
-        for (String[] tab : ranking) {
-            for (String x : tab) {
-
-                System.out.print(x + " ");
-            }
-            System.out.println(" ");
-
-        }
-
+    public int compare(Score a, Score b) {
+        return a.points - b.points;
     }
 }
