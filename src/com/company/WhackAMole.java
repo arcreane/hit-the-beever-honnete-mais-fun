@@ -1,136 +1,80 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class WhackAMole {
 
-        int score;
-        int molesLeft;
-        int attemptsLeft;
-        char[][] moleGrid;
+    int score;
+    int attemptsLeft;
+    String[][] moleGrid;
+    int gridLevel = Grid.level;
+    public int moleX;
+    public int moleY;
 
-        public WhackAMole(int numAttempts, int gridDimension) {
-            attemptsLeft = numAttempts;
-            moleGrid = new char[gridDimension][gridDimension];
-            //construct empty grid
-            for(int i = 0; i < gridDimension; i++)
-            {
-                for(int j = 0; j < gridDimension; j++)
-                {
-                    moleGrid[i][j] = '□';
+    public WhackAMole(int numAttempts, int gridLevel) {
+        attemptsLeft = numAttempts;
+        if (moleGrid == null) {
+            moleGrid = new String[gridLevel][gridLevel];
+            initGrid(moleGrid);
+        }
+
+
+            int i;
+            int j;
+
+            moleX = (int) (Math.random() * gridLevel-1 );
+            moleY = (int) (Math.random() * gridLevel -1 );
+            moleGrid[moleX][moleY] = "🐸 ";
+
+            for (i = 0; i < gridLevel; i += 1) {
+                System.out.print(i + "  ");
+
+                for (j = 0; j < gridLevel; j += 1) {
+
+                    System.out.print(moleGrid[i][j]);
                 }
-
+                System.out.println();
             }
+            moleGrid[moleX][moleY] = "- ";
 
-        }
-
-        boolean place(int x, int y) {
-            if(moleGrid[x][y] == '*')
-            {
-                moleGrid[x][y] = 'M';
-                molesLeft++;
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-
-
-        void whack(int x, int y) {
-            if(x == -1 && y == -1)
-            {
-                attemptsLeft = 0;
-                printGrid();
-
-            }
-            else if(moleGrid[x][y] == 'M')
-            {
-                moleGrid[x][y] = 'W';
-                score++;
-                attemptsLeft--;
-                molesLeft--;
-                printGridToUser();
-            }
-            else
-            {
-                attemptsLeft--;
-                printGridToUser();
-            }
-        }
-
-        void printGridToUser() {
-            for(int i = 0; i < moleGrid.length; i++)
-            {
-                for(int j = 0; j < moleGrid.length; j++)
-                {
-                    if(moleGrid[i][j] == 'W')
-                    {
-                        System.out.print("W" +" ");
-                    }
-                    else
-                    {
-                        System.out.print("*" + " ");
-                    }
-                }
-                System.out.print("\n");
-            }
-        }
-
-        boolean printGrid() {
-            for(int i = 0; i < moleGrid.length; i++)
-            {
-                for(int j = 0; j < moleGrid.length; j++)
-                {
-                    System.out.print(moleGrid[i][j] + " ");
-                }
-                System.out.println("");
-            }
-
-            return false;
-        }
-
-        public String toString(){
-            String status = "";
-            status += "Score: " + score;
-            status += "\n";
-            status += "Moles Left: " + molesLeft;
-            status += "\n";
-            status += "Attempts Left:" + attemptsLeft;
-            return status;
         }
 
 
 
-        public static void main(String[] args) {
-
-            WhackAMole game = new WhackAMole(50, 10);
-            //randomly place ten moles
-            int placedMoles = 0;
-            while(placedMoles < 10)
-            {
-                int randomGuessX = (int)(Math.random()*10);
-                int randomGuessY = (int)(Math.random()*10);
-                if(game.place(randomGuessX, randomGuessY) == true)
-                {
-                    placedMoles++;
-                }
+    private void initGrid(String[][] moleGrid) {
+        for (int i = 0; i < moleGrid.length; i++) {
+            for (int j = 0; j < moleGrid[i].length; j++) {
+                moleGrid[i][j] = "- ";
             }
-
-            while(game.attemptsLeft > 0 && game.molesLeft > 0)
-            {
-                Scanner userInput = new Scanner(System.in);
-                System.out.println("Enter the x and y coordinates of where you would like to take a whack."
-                        +"\n"+
-                        "You have a maximum of 50 attempts to get all the moles.");
-                System.out.print("x coordinate of the mole: ");
-                int userGuessX = userInput.nextInt();
-                System.out.println("");
-                System.out.print("y coordinate of the mole: ");
-                int userGuessY = userInput.nextInt();
-                game.whack(userGuessX,userGuessY);
-            }
-
         }
     }
+
+    boolean place(int x , int y) {
+        if (x == moleX && y == moleY) {
+            System.out.println("Correct answer");
+            score++;
+            attemptsLeft--;
+            return true;
+        } else {
+            System.out.println("Nope, try  again");
+            attemptsLeft--;
+            return false;
+        }
+    }
+
+
+
+    public String toString() {
+        String status = "";
+        status += "Score: " + score;
+        status += "\n";
+        status += "Attempts Left:" + attemptsLeft;
+        status += "\n";
+        return status;
+    }
+
+
+
+
+
+}
+
 

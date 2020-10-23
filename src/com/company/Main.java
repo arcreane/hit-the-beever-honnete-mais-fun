@@ -1,8 +1,10 @@
 package com.company;
 
-import java.util.Scanner;
+/** The Main class is used to call the Menu class where the user will be asked to pick an option related to the game -
+ * The function "menu" is called through the Menu class - stored in a integer type variable
+ * */
 
-import static com.company.Menu.menu;
+import java.util.Scanner;
 
 public class Main {
 
@@ -10,13 +12,11 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         int userChoiceMenu;
-        userChoiceMenu = menu();
+        userChoiceMenu = Menu.menu();
 
-       //WhackAMole ourWhackAMole;
-       //ourWhackAMole = new WhackAMole(10,10);
 
-       System.out.println(ourWhackAMole.printGrid());
 
 
     }
+
 }
